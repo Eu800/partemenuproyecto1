@@ -1,12 +1,12 @@
-import React, { useId, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Login(props) {
+
   const formRef = useRef(null);
   //variable de navegacion entre pantallas
   let navegar=useNavigate();
   
-  const [linkClicked, setLinkClicked] = useState(false)
   const { parametro } = props;
   // fijar un estado inicial
   const [lista, setLista] = useState(parametro);
@@ -22,18 +22,18 @@ function Login(props) {
     const validUser = lista.some(
       (item) => item.user === usuario.user && item.pass.toString() === usuario.pass
     );
-
+    // Si el usuario es válido, ingresa exitósamente
     if (validUser) {
       console.log("Inicio de sesión exitoso");
       navegar("/menubrigadista/:"+usuario.user);
+      // Se limpian los valores ingresados en los campos 
       formRef.current.reset();
-      //limpiarCampos();
-      // Realizar acciones adicionales después de iniciar sesión correctamente
+    // Caso contrario, se enviará una alerta con el fallo en inicio de sesión
     } else {
       alert("Datos Mal Ingresados")
+      // Se limpian los valores ingresados en los campos 
       formRef.current.reset();
-      //limpiarCampos();
-      // Realizar acciones adicionales para manejar el inicio de sesión fallido
+
     }
   };
 

@@ -6,6 +6,7 @@ import ImageListItem from '@mui/material/ImageListItem';
   
    function Listaimagenes() {
 
+    // Funcion para gestionar el collage de imagenes
     function srcset(image, size, rows = 1, cols = 1) {
         return {
           src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
@@ -15,6 +16,7 @@ import ImageListItem from '@mui/material/ImageListItem';
         };
       }
 
+      // Vector con las imagenes del collage
       const itemData = [
         {
           img: 'https://lirp.cdn-website.com/c710b317/dms3rep/multi/opt/logo-seguridad-superior-1920w.png',
@@ -65,6 +67,7 @@ import ImageListItem from '@mui/material/ImageListItem';
         cols={4}
         rowHeight={95}
       >
+        {/* Se muestra cada una de la imagenes gestionadas con el srcset */}
         {itemData.map((item) => (
           <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
             <img
