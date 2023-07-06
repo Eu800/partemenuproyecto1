@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette');
+
+.custom-title {
+    background: linear-gradient(45deg, #f8f8f8, #a5a9ad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 70px;
+    font-weight: bold;
+    font-family:Courgette;
+    margin-left: 50px;
+  }
+
+#arreglotextoletrero{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#fondocollage{
+    background:linear-gradient(45deg, #a8f6c4, #8c8ffa);
+    /* width: 600px; */
+    width: 100%;
+    height: 500px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid blue; 
+    padding: 10px;
+}
+
+.sizeletra{
+    font-size: 30px;
+    font-family:Courgette;
+
+}
+
+#barratitulo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+}
+
+#iconosesion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 400px;
+}
