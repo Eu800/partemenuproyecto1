@@ -17,13 +17,13 @@ import ImageListItem from '@mui/material/ImageListItem';
 
       const itemData = [
         {
-          img: 'https://us.123rf.com/450wm/snaidjer/snaidjer2004/snaidjer200401024/145025100-dise%C3%B1o-de-logotipo-de-ilustraci%C3%B3n-simple-seguridad-combinando-escudo-y-cerradura.jpg',
+          img: 'https://lirp.cdn-website.com/c710b317/dms3rep/multi/opt/logo-seguridad-superior-1920w.png',
           title: 'Breakfast',
           rows: 2,
           cols: 2,
         },
         {
-          img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwMhe9YgCAZO0DcK043Vz63zzHHqnncrRMjg&usqp=CAU',
+          img: 'https://www.chaussuresdesalpes.fr/images/com_hikashop/upload/cityguard.jpg',
           title: 'Burger',
         },
         {

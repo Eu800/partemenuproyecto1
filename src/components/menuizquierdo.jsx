@@ -20,11 +20,18 @@ import Listaimagenes from "./listaimagenes";
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import Iconosesion from "./iconosesion";
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useParams, useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
 function Menuizquierdo() {
+  
+  let {user} = useParams();
+  let usermostrar=user.replace(/:/g, "");
+  const primeraLetra = usermostrar.charAt(0);
+  let navegar=useNavigate();
   return (
+    <div id="cuerpototal">
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
@@ -36,8 +43,8 @@ function Menuizquierdo() {
             <div id="barratitulo">
               <div className="custom-title">Menú Brigadista</div>
               <div id="iconosesion">
-                <Iconosesion></Iconosesion>
-                <div>NombreUsuario</div>
+                <Iconosesion valorletra={primeraLetra}></Iconosesion>
+                <div>{usermostrar}</div>
               </div>
             </div>
           </Typography>
@@ -98,7 +105,8 @@ function Menuizquierdo() {
         <Divider />
         <List>
           {['Salir'].map((text, index) => (
-          <ListItem key={text} disablePadding>
+          <ListItem key={text} disablePadding onClick={() => {
+            navegar("/");}}>
             {index === 0 && (
               <ListItemButton sx={{ color: 'red' }}>
                 <ListItemIcon>
@@ -124,6 +132,7 @@ function Menuizquierdo() {
         </div>
       </Box>
     </Box>
+    </div>
   );
 }
 export default Menuizquierdo;

@@ -1,8 +1,161 @@
-.App {
+/* .App {
   background:linear-gradient(45deg, #a8f6c4, #8c8ffa);
   display: flex;
   flex-direction: column;
   height: 655px;
   margin: 0;
   padding: 0;
+} */
+
+.App {
+  text-align: center;
+  display: flex;
+  margin: 5%;
+
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.todo {
+  width: 80%;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.todo:hover {
+  background-color: #e6f7ff;
+  box-shadow: #0058ad;
+}
+
+button {
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  background-color: #0BBCCC;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #0058ad;
+}
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="password"] {
+  padding: 12px;
+  border: 1px solid #cdd9f7;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  margin-left: 12px;
+}
+.texto {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #14297C;
+}
+
+#us{
+  margin-left:19px ;
+}
+#uss{
+  margin-left:15px ;
+}
+
+.escudo{
+  width: 100px;
+  
+}
+.buho:hover, .buho4:hover {
+  transform: rotate(-5deg) scale(1.1);
+}
+.buho2:hover, .buho3:hover {
+  transform: rotate(5deg) scale(1.1);
+}
+
+.buho {
+  width: 50px;
+  margin: 2px;
+  padding: 0px;
+  float: left;
+  transition: transform 0.2s; 
+}
+
+.buho2 {
+  width: 50px;
+  margin: 2px;
+  padding: 0px;
+  float: right;
+  transition: transform 0.2s; 
+}
+
+.link-no-subrayado {
+  text-decoration: dotted;
+}
+
+.buho3 {
+  width: 300px;
+  margin: 0;
+  padding: 0px;
+  float: left;
+  transition: transform 0.2s; 
+}
+
+.buho4 {
+  width: 150px;
+  margin: 0;
+  padding: 0px;
+  float: right;
+  transition: transform 0.2s; 
+}
+
+#fle{
+  margin-right: 150px ;
 }
