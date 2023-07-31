@@ -3,55 +3,38 @@ import { useNavigate } from "react-router-dom";
 
 function AñadirUsuarios(props) {
   let navegar = useNavigate();
-
+  // Se obitene la lista desestrcuturando el props
   const { lista } = props;
-
-  // camino A
+  // Se define una variable de estado para el nuevo usuario
   const [usuario, setUsuario] = useState({
-    // id:"",
     user: "",
     apellido: "",
     correo: "",
     pass: "",
     telef: "",
   });
-
-  // camino B
-  // const [id, setID] = useState("");
-  // const [user, setUser] = useState("");
-  // const [apellido, setApellido] = useState("");
-  // const [correo, setCorreo] = useState("");
-  // const [pass, setPass] = useState("");
-  // const [telef, setTelef] = useState("");
-
+  // Se define una variable de estado para comprobar la contraseña
   const [repetirPass, setRepetirPass] = useState("");
 
   function agregarUsuario() {
-    // comprobar password
-    // camino A
+    // Si las contraseñas no coinciden, se enviará una alerta de error
     if (usuario.pass !== repetirPass.pass) {
-      alert("tus contraseñas no coinciden");
+      alert("Tus contraseñas no coinciden");
       console.log(lista);
       return;
     }
-    // camnino B
-    // if (pass!==repetirPass) {
-    //     alert("tus contraseñas no coinciden")
-    //     return;
-    // }
-
-    // camnio A
+    
+    // Se valida si el nuevo usuario coincide con uno ya ingreaso anteriormente
     if (lista.find((usr) => usr.user === usuario.user) === undefined) {
       lista.push(usuario);
       navegar("/");
+      // Se muestra una alerta avisando que se registró correctamente
+      alert("Te has registrado exitosamente :)")
       console.log(lista);
-    } else alert("nombre de usuario ya existe!!!!");
+    }
+    // Caso contrario, se muestra una alerta con el fallo de registro 
+    else alert("nombre de usuario ya existe!!!!");
 
-    // camino B
-    // if (lista.find(usr => usr.user===user)===undefined)
-    //     alert("nombre de usuario ya existe!!!!");
-    // else
-    //     lista.push({user,apellido,correo,pass,telef});
   }
   return (
     <div className="todo">
@@ -74,9 +57,7 @@ function AñadirUsuarios(props) {
             placeholder="Ingrese su nombre"
             required
             onChange={(e) => setUsuario({ ...usuario, user: e.target.value })}
-          />{" "}
-          {/*camino A*/}
-          {/* onChange={(e) => setNombre(e.target.value)}/> */} {/*camino B*/}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="apellido"><strong>Apellido:</strong></label>

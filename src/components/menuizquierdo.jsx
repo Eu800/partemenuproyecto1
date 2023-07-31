@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './menuizquierdo.css';
+import './menuizquierdo.css';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -23,12 +23,15 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { useParams, useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
-
+// Interfaz de Inicio para el Brigadista
 function Menuizquierdo() {
-  
+  // Se obtiene le parametro (user) del path
   let {user} = useParams();
+  // Se elimina los ':' del parámetro obtenido
   let usermostrar=user.replace(/:/g, "");
+  // Se obtiene la primera letra del nombre de usuario
   const primeraLetra = usermostrar.charAt(0);
+  // Se instancia el hook useNavigate
   let navegar=useNavigate();
   return (
     <div id="cuerpototal">
@@ -43,6 +46,7 @@ function Menuizquierdo() {
             <div id="barratitulo">
               <div className="custom-title">Menú Brigadista</div>
               <div id="iconosesion">
+                {/* Se muestra la primera letra en un icono de sesión, enviando la leta como props*/}
                 <Iconosesion valorletra={primeraLetra}></Iconosesion>
                 <div>{usermostrar}</div>
               </div>
@@ -127,6 +131,7 @@ function Menuizquierdo() {
         <div id="arreglotextoletrero">
           <div id="fondocollage">
             <div className="sizeletra">¡Bienvenido/a! Estamos encantados de tenerte aquí!</div>
+            {/* Se usa el componente Listaimagenes para mostrar un collage de imagenes */}
             <div><Listaimagenes></Listaimagenes></div>
           </div>
         </div>
