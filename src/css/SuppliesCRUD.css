@@ -21,5 +21,33 @@ inputMaterial {
     font-weight: bold;
 }
 #Supp-title{
-    background-color: aqua;
+    /*background-color: aqua;*/
 }
+.App {
+    background-image: url('../fondo.png');
+    margin: 0%;
+}
+.Sup-container {
+    background-image: url('../fondoTabla.png');
+    
+    background-position: center center;
+    border-radius: 25px;
+    padding: 5%;
+    width: 80%;
+    height: 600px;
+    margin-left: 5%;
+}
+#logo-prin {
+    height: 180px;
+    position: absolute;
+    top: 16%; /* Alinea la parte superior de la imagen al 50% del contenedor */
+    transform: translateY(-50%); /* Centra verticalmente la imagen */
+    left: 75%; /* Coloca la imagen a la izquierda del contenedor */
+}
+.fechaAdd {
+    text-align: center !important;;
+    /*margin-left: 25% !important;*/
+    width: 235px !important;
+    margin-left: 83px !important;
+}
+
