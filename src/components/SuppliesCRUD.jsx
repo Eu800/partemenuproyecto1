@@ -8,7 +8,6 @@ import { Edit, Delete } from '@mui/icons-material';
 // Componentes para fecha
 import DateComponent from './DateComponent';
 
-
 // variable con el estilo de la ventana modal
 const styleModal = {
     position: 'absolute',
@@ -38,7 +37,10 @@ const SuppliesCRUD = () => {
     const [nuevoSupp, setNuevoSupp] = useState(initialState);
     // Variables de bandera para abrir y cerrar la ventana modal
     const [modalInsert, setModalInsert] = useState(false);
-    // Variables de bandera para controlar el item guardado
+    // Variables de estado para la edicion de registros
+    const [editMode, setEditMode] = useState(false);
+    const [editingItem, setEditingItem] = useState(null);
+    const [editingIndex, setEditingIndex] = useState(null);
     //    const [modalInsert, setModalInsert] = useState(false);
 
     // Variable con la lista de implementos
@@ -60,6 +62,19 @@ const SuppliesCRUD = () => {
         }))
     }
 
+    const handleEditClick = (index) => {
+        setEditMode(true);
+        setEditingItem(listaSupl[index]);
+        setEditingIndex(index);
+    };
+
+    const handleDeleteClick = (index) => {
+        const confirmDelete = window.confirm('¿Estás seguro de que quieres eliminar este registro?');
+        if (confirmDelete) {
+            deleteSupp(index);
+        }
+    };
+
     // Función para agregar el nuevo implemento
     const addSupp = () => {
         listaSupl.push(nuevoSupp);
@@ -68,13 +83,35 @@ const SuppliesCRUD = () => {
         setNuevoSupp(initialState); // Limpia los valores de nuevoSupp
     }
 
+    // Funciones para editar y eliminar un suplemento
+    const editSupp = (index, updatedSupp) => {
+        const updatedList = listaSupl.map((item, i) => (i === index ? updatedSupp : item));
+        setListaSupl(updatedList);
+    };
+    
+    const deleteSupp = (index) => {
+        const updatedList = listaSupl.filter((item, i) => i !== index);
+        setListaSupl(updatedList);
+    };
+
     // Función para controlar la ventana modal Insertar
     const handleAbrirCerrarInsertar = () => {
         setModalInsert(!modalInsert);
-
     }
 
-    // Cuerpo de la ventana Modal
+    const saveEditedSupp = () => {
+        editSupp(editingIndex, editingItem); // Utiliza la función editSupp que definiste anteriormente
+        setEditMode(false);
+        setEditingItem(null);
+        setEditingIndex(null);
+    };
+    
+    const cancelEdit = () => {
+        setEditMode(false);
+        setEditingItem(null);
+    };
+
+    // Cuerpo de la ventana Modal - Insertar
     const bodyInsertar = (
         <Box sx={styleModal}>
             <h1>Registrar nuevos items</h1>
@@ -102,6 +139,34 @@ const SuppliesCRUD = () => {
             </div>
         </Box>
     )
+
+    // Cuerpo de la ventana Modal - Editar
+    /*const bodyEditar = (
+        <Box sx={styleModal}>
+            <h1>Editar item</h1>
+            <TextField label="Código" name='codigo' onChange={handleAtrSupp} type='number' value={editingItem?.codigo || ''}/>
+            <br /><br />
+            <TextField label="Fabricante" name='fabricante' onChange={handleAtrSupp} value={editingItem?.fabricante || ''}/>
+            <br /><br />
+            <Select label="Item" name="item" onChange={handleAtrSupp} value={editingItem?.item || ''}>
+                <MenuItem value="linterna">LINTERNA</MenuItem>
+                <MenuItem value="radio">RADIO</MenuItem>
+                <MenuItem value="comunicador">COMUNICADOR</MenuItem>
+                <MenuItem value="celular">CELULAR</MenuItem>
+            </Select>
+            <br /><br />
+            <TextField label="Tipo" name='tipo' onChange={handleAtrSupp} value={editingItem?.tipo || ''}/>
+            <br /><br />
+            <TextField label="Estado" name='estado' onChange={handleAtrSupp} value={editingItem?.estado || ''}/>
+            <br /><br />
+            <DateComponent label="Fecha de adquisición" className='fechaAdd' onChange={handleDate} style={{ marginLeft: 'auto', marginRight: 'auto', width: '80%' }}/>
+            <br />
+            <div align='right'>
+                <Button color='primary' onClick={saveEditedSupp}>Guardar</Button>
+                <Button onClick={cancelEdit}>Cancelar</Button>
+            </div>
+        </Box>
+    )*/
 
     return (
         <div className='Sup-container'>
@@ -135,9 +200,9 @@ const SuppliesCRUD = () => {
                                         <TableCell align="center">{item.estado}</TableCell>
                                         <TableCell align="center">{item.fechaAdd}</TableCell>
                                         <TableCell>
-                                            <Edit />
+                                            <Edit onClick={() => handleEditClick(index)} />
                                             &nbsp;&nbsp;
-                                            <Delete />
+                                            <Delete onClick={() => handleDeleteClick(index)}/>
                                         </TableCell>
                                     </TableRow>
                                 ))
