@@ -212,7 +212,7 @@ const SuppliesCRUD = () => {
                     </Table>
                 </TableContainer>
                 {/* Ventana Modal para ingresar un nuevo insumo a la Tabla */}
-                <Modal open={modalInsert} onClose={handleAbrirCerrarInsertar} disablePortal disableEnforceFocus disableAutoFocus >
+                <Modal open={modalInsert} onClose={handleAbrirCerrarInsertar} disablePortal='true' disableEnforceFocus disableAutoFocus >
                     {bodyInsertar}
                 </Modal>
             </div>
