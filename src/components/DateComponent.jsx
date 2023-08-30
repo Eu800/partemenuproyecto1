@@ -18,17 +18,13 @@ export default function DateComponent(props) {
       setValueDate(dayjs(value));
       // Se cambia a true el estado del value
       setIsValue(true);
+      console.log(IsValue);
     } else {
       // Si value es vacío, se cambia el estado de validez a false
-      setIsValid(false);
+      setIsValue(false);
+      console.log(IsValue);
     }
   }, [value]);
-
-  const validValue = (value) => {
-    if (value) {
-      setIsValue(true);
-    }
-  }
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>

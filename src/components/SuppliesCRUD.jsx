@@ -47,7 +47,7 @@ const SuppliesCRUD = () => {
 
     // Función para validar si los campos obligatorios están llenos
     const validateRequiredFields = () => {
-        const requiredFields = ['codigo', 'fabricante', 'item', 'tipo', 'estado'];
+        const requiredFields = ['codigo', 'fabricante', 'item', 'tipo', 'estado', 'fechaAdd'];
         const newIsRequiredFilled = { ...isRequiredFilled };
 
         requiredFields.forEach(field => {
@@ -193,7 +193,7 @@ const SuppliesCRUD = () => {
                 <MenuItem value="DAÑADO">DAÑADO</MenuItem>
             </TextField>
             <br />
-            <DateComponent label="Fecha de adquisición" className='fechaAdd' onChange={handleDate} style={{ marginLeft: 'auto', marginRight: 'auto', width: '80%' }} />
+            <DateComponent label="Fecha de adquisición" value={itemSelect.fechaAdd} className='fechaAdd' onChange={handleDate} style={{ marginLeft: 'auto', marginRight: 'auto', width: '80%' }} />
             <br />
             <div align='right'>
                 <Button color='primary' onClick={() => addSupp()}>Ingresar</Button>
